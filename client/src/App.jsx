@@ -3,6 +3,7 @@ import Result from './pages/Result'
 import BuyCredit from './pages/BuyCredit'
 import { Routes,Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 function App() {
  
@@ -17,6 +18,7 @@ function App() {
       
       
       </Routes>
+      <Footer/>
 
    
     </div>

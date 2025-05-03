@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets } from '../assets/assets'
 import {delay, motion} from "framer-motion" 
+import { AppContext } from '../context/AppContext'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
+    const {user , setShowLogin} = useContext(AppContext)
+    const navigate = useNavigate()
+    const onClickHandler = ()=>{
+        if(user){
+            navigate('/result')
+        }
+        else{
+            setShowLogin(true)
+        }
+
+    }
   return (
     <motion.div initial = {{opacity:0.2 , y : 100}} 
     transition={{duration:1}}
@@ -35,7 +48,7 @@ const Header = () => {
             className='text-center max-w-xl mx-auto mt-5'>Unleash your creativity with AI. Turn your imagination into visual art 
                 in seconds - just type, and 
                 watch the magic unfold</motion.p>
-            <motion.button 
+            <motion.button  onClick={onClickHandler}
             whileHover={{scale:1.20}}
             whileTap={{scale:0.60}}
               initial = {{opacity:0 }} 
